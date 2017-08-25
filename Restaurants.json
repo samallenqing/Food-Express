@@ -1,0 +1,32 @@
+[
+  {
+    "restaurantId": "1",
+    "name": "WoodStone Pizzeria",
+    "phoneNumber": "9093930113",
+    "address": "4200 Chino Hills Pkwy, Ste 890, Chino Hills, CA 91709"
+  },
+  {
+    "restaurantId": "2",
+    "name": "Cafe Gunul2",
+    "phoneNumber": "6266245130",
+    "address": "1616 Nogales St, Rowland Heights, CA 91748"
+  },
+  {
+    "restaurantId": "3",
+    "name": "King Bap",
+    "phoneNumber": "9093960420",
+    "address": "1106 S Diamond Bar Blvd, Diamond Bar, CA 91765"
+  },
+  {
+    "restaurantId": "4",
+    "name": "You & Me Dining",
+    "phoneNumber": "9096121768",
+    "address": "1241 S Diamond Bar Blvd, Diamond Bar, CA 91765"
+  },
+  {
+    "restaurantId": "5",
+    "name": "Dilliwala Indian Kitchen",
+    "phoneNumber": "9098607444",
+    "address": "303 S Diamond Bar Blvd, Diamond Bar, CA 91765"
+  }
+]

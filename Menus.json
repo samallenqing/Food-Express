@@ -1,0 +1,63 @@
+[
+  {
+    "restaurantId": "1",
+    "name": "Giant Calzone",
+    "description": "Pizza",
+    "price": 7.99
+  },
+  {
+    "restaurantId": "1",
+    "name": "Crispy Greek Salad",
+    "description": "Mixed greens, feta, kalamata olives, cucumbers, artichoke hearts, cherry tomatoes, green peppers, red wine vinaigrette. Served with fresh bread.",
+    "price": 7.99
+  },
+  {
+    "restaurantId": "1",
+    "name": "Fresh Green Pie",
+    "description": "Basil pesto sauce, mozzarella sauce, feta, roasted eggplant, roasted zucchini, artichoke hearts, fresh tomato.",
+    "price": 12.99
+  },
+  {
+    "restaurantId": "1",
+    "name": "Ricotta Ravioli Pasta",
+    "description": "Served with fresh bread.",
+    "price": 7.99
+  },
+  {
+    "restaurantId": "1",
+    "name": "Chocolate Chunk Cookie",
+    "description": "Cookie filled with chocolate chunks and nuts.",
+    "price": 2.25
+  },
+  {
+    "restaurantId": "2",
+    "name": "Gilafi Paneer",
+    "description": "Melt in your Mouth fried, bite size paneer and potato balls.",
+    "price": 5.95
+  },
+  {
+    "restaurantId": "2",
+    "name": "Paneer Tikka",
+    "description": "Indian cheese cubes and seasonal vegetables marinated in fragrant spices and grilled in the tandoor.",
+    "price": 11.95
+  },
+  {
+    "restaurantId": "2",
+    "name": "Chicken Tikka Masala",
+    "description": "Loved by all- tender morsels of chicken tikka simmered in a creamy tomato sauce.",
+    "price": 12.95
+  },
+  {
+    "restaurantId": "2",
+    "name": "Paneer Tikka Masala",
+    "description": "Indian cheese pieces cooked in a creamy tomato sauce.",
+    "price": 10.95
+  },
+  {
+    "restaurantId": "2",
+    "name": "Plain Naan",
+    "description": "Unleavened bread baked inside the tandoor.",
+    "price": 1.95
+  }
+
+]
