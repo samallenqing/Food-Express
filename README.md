@@ -27,7 +27,7 @@ This spring cloud application is built on mic-services. In this application cons
 
 - **Restaurant Service**
   1. demo
-     1. Menu.class - restaurantId, name, description, price, Id
+     1. MenuItem.class - restaurantId, name, description, price, Id
      2. Restaurant.class - Id, name, address, phone number
   2. repository
      1. MenuRepository.interface
