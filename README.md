@@ -25,134 +25,7 @@ This is a food delivery application using Micro-services architecture and Spring
 ## Server Design
 This spring cloud application is built on mic-services. In this application consists of six modules.
 
-- **Restaurant Service**
-  1. demo
-     1. MenuItem.class - restaurantId, name, description, price, Id
-     2. Restaurant.class - Id, name, address, phone number
-  2. repository
-     1. MenuRepository.interface
-        - Get all menus by restaurant Id.
-        - Get menu item by item name.
-     2. RestaurantRepository.interface
-        - Find restaurant by name.
-  3. rest
-     1. RestaurantRestApi.class
-        - Create restaurant by POST method.
-        - Create menu item by POST method.
-        - Find restaurant by restaurant name with GET method.
-        - Find menu item by item name with Get method.
-        - Upload initial menu items with POST method.
-  4. service
-     1. MenuService.interface
-        - Find all menu items by restaurant Id.
-        - Create menu items.
-        - Upload menu items.
-     2. RestaurantService.interface
-        - Create restaurant.
-        - Find restaurant by name.
-     3. Implements
-        1. MenuServiceImpl.class
-           - Find menu items by restaurant name.
-           - Upload menu items.
-           - Create menu item.
-        2. RestaurantSerivceImpl.class
-           - Create restaurant.
-           - Find restaurant by name.
-  5. RestaurantServiceApplication - Spring Boot Application implement Eureka.
 
-- **Order Service**
-  1. demo
-     1. Order.class - Id, List of items, totalPrice, orderTime, deliveryTime, paymentId, userInfo.
-     2. ItemOrdered.class - name, price, quantity.
-     3. Address.class - address, city, state, zip.
-     4. UserInfo.class - Id, firstName, lastName, phone, address.
-  2. repository
-     1. OrderRepository.interface
-        - Get order items by user Id.
-        - Delete order by user Id.
-        - Create order by user Id.
-  3. rest
-      1. OrderRestApi.class
-         - Create order by POST method.
-  4. service
-      1. OrderService.interface
-         - Create order.
-      2. Implements
-         1. OrderServiceImpl.class
-            - Set order time.
-            - Set total price.
-  5. OrderServiceApplication - Spring Boot Application implement Eureka.
-
-- **Payment Service**
-  1. demo
-     1. CreditCardInfo.class - firstName, lastName, expiredMonth, expiredYear, securityCode.
-     2. ItemDetail.class - name, price, quantity.
-     3. Order.class - Id, List of items, totalPrice, orderTime, deliveryTime, paymentId, userInfo.
-     4. Payment.class - Id, timestamp, amount, orderId, creditCardInfo.
-     5. UserInfo.class - Id, firstName, lastName, phone, address.
-  2. repository
-     1. OrderRepository.interface
-        - Get order items by payment Id.
-        - Create order by payment Id.
-     2. PaymentRepository.interface
-        - Find payment by payment Id. 
-  3. rest
-     1. RestaurantRestApi.class
-        - Create restaurant by POST method.
-        - Create menu item by POST method.
-        - Find restaurant by restaurant name with GET method.
-        - Find menu item by item name with Get method.
-        - Upload initial menu items with POST method.
-  4. service
-     1. MenuService.interface
-         - Find all menu items by restaurant Id.
-         - Create menu items.
-         - Upload menu items.
-     2. RestaurantService.interface
-         - Create restaurant.
-         - Find restaurant by name.
-     3. Implements
-        1. MenuServiceImpl.class
-           - Find menu items by restaurant name.
-           - Upload menu items.
-           - Create menu item.
-        2. RestaurantSerivceImpl.class
-           - Create restaurant.
-           - Find restaurant by name.
-  5. PaymentServiceApplication - Spring Boot Application implement Eureka.
-
-
-- **Order Updater**
-  1. demo
-     1. ItemDetail.class - name, price, quantity.
-     2. Order.class - Id, List of items, totalPrice, orderTime, deliveryTime, paymentId, userInfo.
-     3. UserInfo.class - Id, firstName, lastName, phone, address.
-     4. CreditCardInfo.class - firstName, lastName, expiredMonth, expiredYear, securityCode.
-  2. rest
-     1. OrderUpdaterRestApi.class
-        - Send order by POST method.
-        - Send error message if order is wrong by POST method.
-     2. WebSocketRestApi.class
-        - Send message.
-  3. OrderUpdaterApplication - Spring Boot Application implement Eureka.
-  4. WebSocketConfig.class - Stander Configuration
-  5. OrderUpdaterSink.class - Enable to send message to front end.
-  
-- **Order Distribution**
-  1. demo
-     1. Payment.class - Id, timestamp, amount, orderId, creditCardInfo.
-     2. Order.class - Id, List of items, totalPrice, orderTime, deliveryTime, paymentId, userInfo.
-     3. UserInfo.class - Id, firstName, lastName, phone, address.
-  2. rest
-     1. OrderDistributionRestApi.class
-        - Send payload by POST method.
-  3. OrderDistributionApplication - Spring Boot Application implement Eureka.
-  
-- **Platform**
-  1. eureka
-     - EurekaApplication.class - Enable Euraka server.
-  2. hystrix
-     - HystrixApplicatoin.class - Enable Hystrix test.
 
 ## Maven Dependencies
 
@@ -275,9 +148,101 @@ This spring cloud application is built on mic-services. In this application cons
         </dependency>
 ```
 
+# Ready to Begin?
+
+## Step 1 - Create a directory folder and download files from github
+
+Use the following cmd in terminal to create the requests files. Here use examples "test".
+```
+mkdir test
+cd test
+git clone https://github.com/samallenqing/Spring-Cloud-Food-Express.git
+
+```
+
+## Step 2 - Create fat jar
+
+Use the terminal before to enter the following cmd.
+
+```
+cd Spring-Cloud-Food-Express
+mvn clean install
+```
+
+## Step 3 - Use Docker to build images
+
+Use the terminal before to enter the following cmd.
+
+```
+ docker-compose up
+```
+## Step 4 - Running Infrastructure Servers
+
+Run the following codes. Each line in a new terminal.
+```
+sh ./start-eureka.sh
+sh ./hystrix.sh
+```
+Wait couple seconds, then we have already started Eureka and Hystrix.
+
+## Step 5 - Start Mic-services
+
+Run the following codes. Each line in a new terminal.
+```
+sh ./restaurant-service.sh
+sh ./order-service.sh
+sh ./payment-distribution.sh
+sh ./payment-service.sh
+sh ./order-complete-updater.sh
+```
+Wait couple seconds, then we have already started all the mic-services we need.
+
+### Step 6 - Open Browser
+Open any browser and paste the following codes. Each line in a new tab.
+```
+http://localhost:7979
+http://localhost:15672
+http://localhost:8761
+http://localhost:8001/browser/index.html
+```
+- First URL is for Hystrix.
+- Second URL is for MongoDB.
+- Third URL is for Eureka.
+- Fourth URL is HAL Browser. 8001 could be changed to any service port at any time.
+
+In the Hystrix tab, copy and paste the following URL into the search bar. We start to monitor payment service.
+```
+http://localhost:8004/hystrix.stream
+```
+
+### Step 7 - Upload data & Perform test
+
+Open Postman, copy and paste to send those following test cases.
+
+| URL |  Http Method     | File Name     |
+| :------------- | :------------- | :------------- | 
+| localhost:8001/api/restaurants/bulk/menuItems       | POST       | Menus.json    | 
+| localhost:8002/api/restaurants/1/orders      | POST       | OrderTestCase.json  |
+| localhost:8003/api/payments       | POST       | PaymentTestCase.json      |
+
+The first POST, we just upload some restaurants and menus information.
+
+The second POST, we simulate an order has been made. You will see the bottom part of Postman has feedback, which include total price etc.
+
+The third POST, we simulate an payment has been submitted. You can see the data steaming in MonggoDB in 'Queues" tab under payments section. The incoming transaction is sent from payment-service and has been consumed by order-complete-updater.
+  
+Meanwhile, you can check Hystrix window, the data flowing.
+
+All those POSTs methods are repeatable, you can send as many times as you want. 
+
+### Step 8 - Finally but not Least
+
+In the order-complete-update terminal, we shut down this service by pressing Ctrl + C. Send some payments again, meanwhile, take a look at Hystrix window, you will notice the error rate goes to 100%. And the circuit status is open.
+
+
 ## Authors
 
-* **Qin Qing** - *Initial work* - [Sam Qing](https://github.com/PurpleBooth)
+* **Qin Qing** - *Initial work* - [Sam Qing](https://github.com/samallenqing)
 
 ## License
 
