@@ -1,0 +1,27 @@
+{
+	"restaurantId": "1",
+  "items": [
+    {
+      "name": "Crispy Greek Salad",
+      "price": 7.99,
+      "quantity": 2
+    },
+    {
+      "name": "Fresh Green Pie",
+      "price": 7.99,
+      "quantity": 1
+    },
+    {
+      "name": "Ricotta Ravioli Pasta",
+      "price": 12.99,
+      "quantity": 1
+    }
+  ],
+  "userInfo": {
+    "firstName": "Tom",
+    "lastName": "Green",
+    "phoneNumber": "123-456-7890",
+    "address": "4200 Chino Hills Pkwy, Ste 890, Chino Hills, CA 91709"
+  },
+  "note": "More and more catch up"
+}
