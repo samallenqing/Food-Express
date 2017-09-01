@@ -156,7 +156,7 @@ Use the following cmd in terminal to create the requests files. Here use example
 ```
 mkdir test
 cd test
-git clone https://github.com/samallenqing/Spring-Cloud-Food-Express.git
+git clone https://github.com/samallenqing/Food-Express.git
 
 ```
 
