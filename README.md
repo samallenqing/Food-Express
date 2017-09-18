@@ -229,7 +229,7 @@ The first POST, we just upload some restaurants and menus information.
 
 The second POST, we simulate an order has been made. You will see the bottom part of Postman has feedback, which include total price etc.
 
-The third POST, we simulate an payment has been submitted. You can see the data flowing in RabbitMQ in 'Queues" tab under payments section. The incoming transaction is sent from payment-service and has been consumed by order-complete-updater.
+The third POST, we simulate an payment has been submitted. You can see the data flowing in RabbitMQ in 'Queues" tab under payments section.
   
 Meanwhile, you can check Hystrix window, the data flowing.
 
