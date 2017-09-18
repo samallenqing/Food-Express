@@ -206,7 +206,7 @@ http://localhost:8761
 http://localhost:8001/browser/index.html
 ```
 - First URL is for Hystrix.
-- Second URL is for MongoDB.
+- Second URL is for RabbitMQ.
 - Third URL is for Eureka.
 - Fourth URL is HAL Browser. 8001 could be changed to any service port at any time.
 
@@ -229,7 +229,7 @@ The first POST, we just upload some restaurants and menus information.
 
 The second POST, we simulate an order has been made. You will see the bottom part of Postman has feedback, which include total price etc.
 
-The third POST, we simulate an payment has been submitted. You can see the data steaming in MonggoDB in 'Queues" tab under payments section. The incoming transaction is sent from payment-service and has been consumed by order-complete-updater.
+The third POST, we simulate an payment has been submitted. You can see the data flowing in RabbitMQ in 'Queues" tab under payments section. The incoming transaction is sent from payment-service and has been consumed by order-complete-updater.
   
 Meanwhile, you can check Hystrix window, the data flowing.
 
